@@ -925,6 +925,19 @@ pub struct Captures<'t> {
     named_groups: Arc<HashMap<String, usize>>,
 }
 
+/// adopt
+impl Captures<'_> {
+    /// Make the captures adopt a new identical &str, so as to
+    /// move the lifetime ownership.
+    pub fn adopt<'t>(self, text: &'t str) -> Captures<'t> {
+        debug_assert_eq!(self.text, text);
+        Captures {
+            text,
+            ..self
+        }
+    }
+}
+
 impl<'t> Captures<'t> {
     /// Returns the match associated with the capture group at index `i`. If
     /// `i` does not correspond to a capture group, or if the capture group
