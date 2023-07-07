@@ -408,7 +408,7 @@ size_t rure_captures_len(rure_captures *captures);
  * safe to call rure_compile from multiple threads simultaneously using the
  * same options pointer.
  */
-rure_options *rure_options_new();
+rure_options *rure_options_new(void);
 
 /*
  * rure_options_free frees the given options.
@@ -418,7 +418,7 @@ rure_options *rure_options_new();
 void rure_options_free(rure_options *options);
 
 /*
- * rure_options_size_limit sets the appoximate size limit of the compiled
+ * rure_options_size_limit sets the approximate size limit of the compiled
  * regular expression.
  *
  * This size limit roughly corresponds to the number of bytes occupied by a
@@ -536,7 +536,7 @@ size_t rure_set_len(rure_set *re);
  * It is not safe to use errors from multiple threads simultaneously. An error
  * value may be reused on subsequent calls to rure_compile.
  */
-rure_error *rure_error_new();
+rure_error *rure_error_new(void);
 
 /*
  * rure_error_free frees the error given.
