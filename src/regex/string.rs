@@ -1623,6 +1623,17 @@ pub struct Captures<'h> {
     static_captures_len: Option<usize>,
 }
 
+impl Captures<'_> {
+    /// change lifetime onwerships to an identical &str haystack
+    pub fn adopt(self, haystack: &str) -> Captures<'_> {
+        debug_assert_eq!(self.haystack, haystack);
+        Captures {
+            haystack,
+            ..self
+        }
+    }
+}
+
 impl<'h> Captures<'h> {
     /// Returns the `Match` associated with the capture group at index `i`. If
     /// `i` does not correspond to a capture group, or if the capture group did
