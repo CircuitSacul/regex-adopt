@@ -1630,7 +1630,7 @@ impl Captures<'_> {
         Captures {
             haystack,
             caps: self.caps,
-            static_captures_len: self.static_captures_len
+            static_captures_len: self.static_captures_len,
         }
     }
 }
