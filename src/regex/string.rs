@@ -1625,7 +1625,7 @@ pub struct Captures<'h> {
 
 impl Captures<'_> {
     /// change lifetime onwerships to an identical &str haystack
-    pub fn adopt(self, haystack: &str) -> Captures<'_> {
+    pub fn adopt<'h>(self, haystack: &'h str) -> Captures<'h> {
         debug_assert_eq!(self.haystack, haystack);
         Captures { haystack, ..self }
     }
