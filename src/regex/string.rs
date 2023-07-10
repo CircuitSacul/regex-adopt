@@ -1627,10 +1627,7 @@ impl Captures<'_> {
     /// change lifetime onwerships to an identical &str haystack
     pub fn adopt(self, haystack: &str) -> Captures<'_> {
         debug_assert_eq!(self.haystack, haystack);
-        Captures {
-            haystack,
-            ..self
-        }
+        Captures { haystack, ..self }
     }
 }
 
